@@ -14,6 +14,12 @@
       body {
         font-family: "open sans", "HelveticaNeue", "Helvetica Neue",
           "Helvetica-Neue", Helvetica, Arial, sans-serif;
+        color: rgb(102, 102, 102);
+        font-size: 16px;
+        font-weight: 400;
+      }
+      img {
+        max-width: 100%;
       }
       a {
         color: #55b88d;
@@ -24,6 +30,7 @@
       h1,
       h2 {
         text-transform: uppercase;
+        color: rgb(34, 34, 34);
       }
       .top-bar {
         position: sticky;
@@ -34,7 +41,7 @@
         align-items: center;
         align-content: stretch;
         height: 6em;
-        border-bottom: 1px solid #cccccc;
+        border-bottom: 1px solid rgb(225, 225, 225);
       }
       .top-bar-item {
         height: 100%;
@@ -43,13 +50,32 @@
         justify-content: center;
         align-items: center;
         display: flex;
+        font-weight: 600;
+        font-size: 13px;
       }
-      .top-bar-item:hover {
-        border-bottom: 3px solid #3388aa;
+      .top-bar-item a {
+        color: rgb(128, 128, 128);
+        text-decoration: inherit;
+        border-bottom: 3px solid white;
         margin-bottom: -3px;
+        text-transform: uppercase;
+      }
+      .top-bar-item a:hover {
+        border-bottom: 3px solid #3388aa;
+        color: rgb(51, 51, 51);
+        transition: color 0.25s ease;
+        transition: border 500ms ease-out;
       }
       .top-bar-logo img {
         width: 192px;
+      }
+      @media screen and (max-width: 768px) {
+        .top-bar {
+          height: 3em;
+        }
+        .top-bar-logo img {
+          width: 100px;
+        }
       }
       .contents {
         text-align: center;
@@ -60,8 +86,13 @@
         background: #ffffff;
         left: 0px;
         right: 0px;
-        padding: 10px 5px;
         border-top: 1px solid #cccccc;
+        font-size: 11px;
+        color: rgb(68, 68, 68);
+      }
+      .bottom-bar-item {
+        padding-top: 15px;
+        padding-bottom: 15px;
       }
     </style>
   </head>
@@ -75,8 +106,13 @@
             alt="Logo for Calling All Choir"
           />
         </div>
-        <div class="top-bar-item top-bar-about" href="#about">About Us</div>
+        <div class="top-bar-item top-bar-about">
+          <a href="#about">About us</a>
+        </div>
+        <!--
         <div class="top-bar-item top-bar-join" href="#about">Sing With Us</div>
+        -->
+        <!--
         <div class="top-bar-social">
           <ul class="noLightbox social_bookmarks icon_count_4">
             <li
@@ -140,7 +176,7 @@
               >
             </li>
           </ul>
-        </div>
+        </div> -->
       </div>
       <div class="contents">
         <div class="section">
@@ -152,7 +188,7 @@
             Open House and first Rehearsal: Wednesday, February 5th. 6:45-9 pm
           </p>
           <p>St. Gregory’s Episcopal Church (500 De Haro St., San Francisco)</p>
-          <img src="assets/Finno-Ugric-Landscapes-web.png" />
+          <img width="400" height="628" src="assets/Finno-Ugric-Landscapes-web.png" />
           <p>
             Explore music in the Finno-Ugric traditions with the Calling All
             Choir. Our seasons are open to all singers with no auditions
@@ -164,10 +200,10 @@
             >
           </p>
         </div>
-      </div>
-      <div class="bottom-bar">
-        <div class="bottom-bar-item">
-          © The Calling All Choir. San Francisco, CA. All rights reserved.
+        <div class="bottom-bar">
+          <div class="bottom-bar-item">
+            © The Calling All Choir. San Francisco, CA. All rights reserved.
+          </div>
         </div>
       </div>
     </div>
