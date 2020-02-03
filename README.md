@@ -1,2 +1,3 @@
 # callingallchoirdemo.github.io
-Calling All Choir website demo
+
+See `index.html` for the HTML of the site.
