@@ -15,9 +15,11 @@
       .eighth-note {
         font-size: 150%;
       }
+
       * {
         box-sizing: border-box;
       }
+
       body {
         font-family: "open sans", "HelveticaNeue", "Helvetica Neue",
           "Helvetica-Neue", Helvetica, Arial, sans-serif;
@@ -25,17 +27,21 @@
         font-size: 16px;
         font-weight: 400;
       }
+
       img {
         max-width: 100%;
       }
+
       a {
         color: #55b88d;
         text-decoration: none;
       }
+
       a:hover {
         color: #83a83d;
         text-decoration: underline;
       }
+
       h1,
       h2 {
         text-transform: uppercase;
@@ -43,6 +49,7 @@
         font-weight: 600;
         letter-spacing: 1px;
       }
+
       h1::before,
       h2::before {
         /* Add spacing so that when you click, the sticky header doesn't cover the element. */
@@ -54,6 +61,7 @@
         visibility: hidden;
         pointer-events: none;
       }
+
       .top-bar {
         position: sticky;
         background: #ffffff;
@@ -65,6 +73,7 @@
         border-bottom: 1px solid rgb(225, 225, 225);
         height: 95px;
       }
+
       .top-bar-item {
         height: 100%;
         width: 100%;
@@ -75,6 +84,7 @@
         font-weight: 600;
         font-size: 13px;
       }
+
       .top-bar-item a {
         color: rgb(128, 128, 128);
         text-decoration: inherit;
@@ -82,41 +92,50 @@
         margin-bottom: -3px;
         text-transform: uppercase;
       }
+
       .top-bar-item a:hover {
         border-bottom: 3px solid #3388aa;
         color: rgb(51, 51, 51);
         transition: color 0.25s ease;
         transition: border 500ms ease-out;
       }
+
       .top-bar-logo img {
         width: 192px;
         height: 88px;
       }
+
       .top-bar-logo a {
         border: 0;
       }
+
       .top-bar-logo a:hover {
         border: 0;
       }
+
       @media screen and (max-width: 768px) {
         .top-bar {
           height: 48px;
         }
+
         .top-bar-logo img {
           width: 100px;
           height: auto;
         }
+
         h1::before,
         h2::before {
           margin-top: -48px;
           height: 48px;
         }
       }
+
       .contents {
         text-align: center;
         max-width: 800px;
         margin: auto;
       }
+
       .bottom-bar {
         background: #ffffff;
         left: 0px;
@@ -125,10 +144,12 @@
         font-size: 11px;
         color: rgb(68, 68, 68);
       }
+
       .bottom-bar-item {
         padding-top: 15px;
         padding-bottom: 15px;
       }
+
       hr {
         margin-top: 30px;
         margin-bottom: 30px;
@@ -136,6 +157,7 @@
         border-style: solid;
         border-bottom: 0;
       }
+
       a.rounded-button {
         display: block;
         color: white;
@@ -148,12 +170,15 @@
         margin-right: auto;
         font-size: 13px;
       }
+
       a.rounded-button:hover {
         opacity: 0.9;
       }
+
       a.rounded-button:hover {
         text-decoration: none;
       }
+
       input[type="submit"],
       .button {
         padding: 9px 22px;
@@ -164,6 +189,7 @@
         color: white;
         border-color: #33966b;
       }
+
       input[type="email"],
       input[type="text"] {
         background-color: white;
@@ -180,9 +206,11 @@
         background: white;
         border-radius: 0;
       }
+
       .align-left {
         text-align: left;
       }
+
       label {
         font-weight: bold;
         font-size: 12.88px;
@@ -190,6 +218,7 @@
       }
     </style>
   </head>
+
   <body>
     <div class="main">
       <div class="top-bar">
@@ -484,29 +513,31 @@
       </div>
     </div>
     <script type="text/javascript">
-      /* When you navigate to this page with a #something, we scroll to the something. */
-      window.addEventListener("load", () => {
+      // When you navigate to this page with a #something, we scroll to the something.
+      function scrollToHash() {
         var hash = window.location.hash;
-        if (hash && hash[0] == "#") {
+        if (hash && hash[0] === "#") {
           hash = hash.slice(1);
         }
         var element = document.getElementById(hash);
         if (element) {
+          // Use requestAnimationFrame() to delay scrolling. In my testing, scrolling on page load causes
+          // the page to scroll to the element, then scroll right back to where it was.
           window.requestAnimationFrame(() => {
-            element.scrollIntoView(true);
+            if (element.scrollIntoViewIfNeeded) {
+              element.scrollIntoViewIfNeeded();
+            } else {
+              element.scrollIntoView();
+            }
           });
         }
-      });
-      /* When you click a navbar item, that navbar item gains .active. */
-
-      /* When you scroll to the point where a new header becomes visible,
-         either on the top or on the bottom, change which navbar item is
-         .active. Also remove any current window hash, because it might
-         be wrong for sharing. */
-      // Start with:
-      // https://stackoverflow.com/a/22480938
-      // Optimize with:
-      // https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
+      }
+      // TODO:
+      // Watch the scroll position, and update the window.location.hash to underline
+      // the most relevant navbar item.
+      // References:
+      // - https://stackoverflow.com/a/22480938
+      // - https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
     </script>
   </body>
 </html>
