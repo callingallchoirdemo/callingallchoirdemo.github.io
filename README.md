@@ -6,8 +6,6 @@ See `index.html` for the HTML of the site.
 
 Content:
 
-- Add Book Us
-
 - Add testimonials to front page
 
 - Add Team to "About Us". No nav link up top.
