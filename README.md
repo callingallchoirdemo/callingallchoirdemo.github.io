@@ -6,8 +6,6 @@ See `index.html` for the HTML of the site.
 
 Content:
 
-- Add Support Us, as a section
-
 - Add Sing With Us
 
 - Add Book Us
