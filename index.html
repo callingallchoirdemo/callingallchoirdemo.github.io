@@ -20,6 +20,7 @@
         --top-header-height: 92px;
         --top-header-image-width: 192px;
         --top-header-image-height: 88px;
+        --top-bar-font-size: 13px;
       }
 
       @media screen and (max-width: 768px) {
@@ -27,6 +28,7 @@
           --top-header-height: 48px;
           --top-header-image-width: 100px;
           --top-header-image-height: auto;
+          --top-bar-font-size: 11px;
         }
       }
 
@@ -76,7 +78,6 @@
       h1::before,
       h2::before {
         /* Add spacing so that when you click, the sticky header doesn't cover the element. */
-        /* TODO: Experiment with https://codepen.io/kirkgleffe/pen/DfvuE */
         display: block;
         content: " ";
         margin-top: calc(-1 * var(--top-header-height));
@@ -105,7 +106,7 @@
         align-items: center;
         display: flex;
         font-weight: 600;
-        font-size: 13px;
+        font-size: var(--top-bar-font-size);
       }
 
       .top-bar-item a {
