@@ -8,10 +8,6 @@ Content:
 
 - Add testimonials to front page
 
-- Add Team to "About Us". No nav link up top.
-
-- Add FAQ as its own section, with nav link up top.
-
 - Then, someday, add members area.
 
 Layout:
