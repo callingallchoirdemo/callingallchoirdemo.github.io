@@ -6,8 +6,6 @@ See `index.html` for the HTML of the site.
 
 Content:
 
-- Add Sing With Us
-
 - Add Book Us
 
 - Add testimonials to front page
