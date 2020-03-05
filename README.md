@@ -26,7 +26,5 @@ Notes about content I'm skipping:
 
 - About -> News: Skipped. Nothing there. :)
 
-- About -> 
-
 - Photos: The photos are beautiful, but old. Linking to Instagram is better, in my opinion.
 
