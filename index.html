@@ -12,6 +12,24 @@
       rel="stylesheet"
     />
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --top-header-height: 92px;
+        --top-header-image-width: 192px;
+        --top-header-image-height: 88px;
+      }
+
+      @media screen and (max-width: 768px) {
+        :root {
+            --top-header-height: 48px;
+            --top-header-image-width: 100px;
+            --top-header-image-height: auto;
+          }
+      }
+
       .relaxed {
         text-align: left;
         font-size: 16px;
@@ -21,16 +39,13 @@
         font-size: 150%;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
       body {
         font-family: "open sans", "HelveticaNeue", "Helvetica Neue",
           "Helvetica-Neue", Helvetica, Arial, sans-serif;
         color: rgb(102, 102, 102);
         font-size: 16px;
         font-weight: 400;
+        margin-top: 0;
       }
 
       img {
@@ -62,8 +77,8 @@
         /* TODO: Experiment with https://codepen.io/kirkgleffe/pen/DfvuE */
         display: block;
         content: " ";
-        margin-top: -95px;
-        height: 95px;
+        margin-top: calc(-1 * var(--top-header-height));
+        height: var(--top-header-height);
         visibility: hidden;
         pointer-events: none;
       }
@@ -77,11 +92,11 @@
         align-items: center;
         align-content: stretch;
         border-bottom: 1px solid rgb(225, 225, 225);
-        height: 95px;
+        height: var(--top-header-height);
       }
 
       .top-bar-item {
-        height: 100%;
+        height: var(--top-header-height);
         width: 100%;
         text-align: center;
         justify-content: center;
@@ -106,9 +121,15 @@
         transition: border 500ms ease-out;
       }
 
+      .top-bar-logo {
+        height: var(--top-header-height);
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
       .top-bar-logo img {
-        width: 192px;
-        height: 88px;
+        width: var(--top-header-image-width);
+        height: var(--top-header-image-height);
       }
 
       .top-bar-logo a {
@@ -117,23 +138,6 @@
 
       .top-bar-logo a:hover {
         border: 0;
-      }
-
-      @media screen and (max-width: 768px) {
-        .top-bar {
-          height: 48px;
-        }
-
-        .top-bar-logo img {
-          width: 100px;
-          height: auto;
-        }
-
-        h1::before,
-        h2::before {
-          margin-top: -48px;
-          height: 48px;
-        }
       }
 
       .contents {
