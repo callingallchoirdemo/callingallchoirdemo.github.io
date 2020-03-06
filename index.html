@@ -925,32 +925,5 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      // When you navigate to this page with a #something, we scroll to the something.
-      function scrollToHash() {
-        var hash = window.location.hash;
-        if (hash && hash[0] === "#") {
-          hash = hash.slice(1);
-        }
-        var element = document.getElementById(hash);
-        if (element) {
-          // Use requestAnimationFrame() to delay scrolling. In my testing, scrolling on page load causes
-          // the page to scroll to the element, then scroll right back to where it was.
-          window.requestAnimationFrame(() => {
-            if (element.scrollIntoViewIfNeeded) {
-              element.scrollIntoViewIfNeeded();
-            } else {
-              element.scrollIntoView();
-            }
-          });
-        }
-      }
-      // TODO:
-      // Watch the scroll position, and update the window.location.hash to underline
-      // the most relevant navbar item.
-      // References:
-      // - https://stackoverflow.com/a/22480938
-      // - https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
-    </script>
   </body>
 </html>
